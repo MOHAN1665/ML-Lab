@@ -23,6 +23,18 @@ model.fit(X_train, y_train)
 # Make predictions on the testing set
 y_pred = model.predict(X_test)
 
+# Calculate Mean Absolute Error
+mae = mean_absolute_error(y_test, y_pred)
+print("Mean Absolute Error:", mae)
+
+# Calculate Root Mean Squared Error (RMSE)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+print("Root Mean Squared Error:", rmse)
+
+# Calculate Root Mean Squared (RMS)
+rms = np.sqrt(np.mean(np.square(y_test - y_pred)))
+print("Root Mean Squared:", rms)
+
 # Plot actual vs. predicted age
 plt.scatter(y_test, y_pred, color='blue')
 plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'k--', lw=2)
